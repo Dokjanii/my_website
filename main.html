@@ -1,0 +1,1369 @@
+<!DOCTYPE html>
+<html lang="ru" id="html-lang">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Alikhan Kostubayev | Лучший Cybersecurity Architect</title>
+		<meta
+			name="description"
+			content="Aspiring SOC Analyst with a strong foundation in cybersecurity"
+		/>
+
+		<!-- Подключение ресурсов -->
+		<link
+			href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;700&family=Inter:wght@300;500;700&display=swap"
+			rel="stylesheet"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+		/>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js"></script>
+
+		<style>
+			/* Основные переменные */
+			:root {
+				--primary-dark: #0a0f1f;
+				--secondary-dark: #1a223f;
+				--accent: #2ecc71;
+				--text: #ecf0f1;
+				--cyber-gradient: linear-gradient(45deg, #2ecc71, #3498db);
+				--transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+				--shadow-dark: 0 4px 30px rgba(0, 0, 0, 0.2);
+				--shadow-light: 0 4px 30px rgba(0, 0, 0, 0.05);
+				--border-radius: 16px;
+				--section-spacing: 12rem;
+			}
+
+			[data-theme='light'] {
+				--primary-dark: #ffffff;
+				--secondary-dark: #f8f9fa;
+				--text: #2c3e50;
+				--accent: #27ae60;
+				--shadow: var(--shadow-light);
+			}
+
+			/* Базовые стили */
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+
+			body {
+				font-family: 'Inter', sans-serif;
+				background: var(--primary-dark);
+				color: var(--text);
+				line-height: 1.8;
+				overflow-x: hidden;
+			}
+
+			h2 {
+				font-family: 'IBM Plex Mono', monospace;
+				font-size: 3rem;
+				margin-bottom: 4rem;
+				text-align: center;
+				position: relative;
+			}
+
+			h2::after {
+				content: '';
+				position: absolute;
+				bottom: -15px;
+				left: 50%;
+				transform: translateX(-50%);
+				width: 50%;
+				height: 4px;
+				background: var(--cyber-gradient);
+			}
+
+			.container {
+				max-width: 1300px;
+				margin: 0 auto;
+				padding: 0 2.5rem;
+			}
+
+			/* Частицы на фоне */
+			.cyber-particles {
+				position: fixed;
+				width: 100%;
+				height: 100%;
+				z-index: -1;
+				pointer-events: none;
+			}
+
+			.cyber-particle {
+				position: absolute;
+				background: var(--accent);
+				border-radius: 50%;
+				animation: particleFlow 15s linear infinite;
+			}
+
+			@keyframes particleFlow {
+				0% {
+					transform: translateY(-100vh) rotate(0deg);
+				}
+				100% {
+					transform: translateY(100vh) rotate(360deg);
+				}
+			}
+
+			/* Навигация */
+			.cyber-nav {
+				position: fixed;
+				top: 0;
+				width: 100%;
+				background: rgba(10, 15, 31, 0.95);
+				backdrop-filter: blur(15px);
+				padding: 1.5rem 5%;
+				z-index: 1000;
+				box-shadow: var(--shadow-dark);
+			}
+
+			.nav-container {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+			}
+
+			.logo {
+				font-family: 'IBM Plex Mono', monospace;
+				font-size: 1.8rem;
+				background: var(--cyber-gradient);
+				-webkit-background-clip: text;
+				-webkit-text-fill-color: transparent;
+			}
+
+			.nav-links {
+				display: flex;
+				gap: 3rem;
+			}
+
+			.nav-link {
+				color: var(--text);
+				font-family: 'IBM Plex Mono', monospace;
+				text-decoration: none;
+				font-size: 1.1rem;
+				position: relative;
+				transition: var(--transition);
+			}
+
+			.nav-link::after {
+				content: '';
+				position: absolute;
+				width: 0;
+				height: 2px;
+				bottom: -5px;
+				left: 0;
+				background: var(--accent);
+				transition: var(--transition);
+			}
+
+			.nav-link:hover::after {
+				width: 100%;
+			}
+
+			.nav-link:hover {
+				color: var(--accent);
+			}
+
+			.burger-menu {
+				display: none;
+				cursor: pointer;
+				background: none;
+				border: none;
+				color: var(--text);
+				font-size: 2rem;
+			}
+
+			/* Секция "Герой" */
+			.cyber-hero {
+				min-height: 100vh;
+				display: flex;
+				align-items: center;
+				padding: 14rem 5% 5rem;
+				position: relative;
+				overflow: hidden;
+			}
+
+			.hero-content {
+				display: grid;
+				grid-template-columns: 1fr 1fr;
+				gap: 5rem;
+				align-items: center;
+			}
+
+			.profile-container {
+				width: 450px;
+				height: 450px;
+				border-radius: var(--border-radius);
+				overflow: hidden;
+				border: 4px solid var(--accent);
+				transition: var(--transition);
+			}
+
+			.profile-container:hover {
+				transform: scale(1.05);
+				box-shadow: 0 0 100px rgba(46, 204, 113, 0.6);
+			}
+
+			.profile-image {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+			}
+
+			.hero-title {
+				font-family: 'IBM Plex Mono', monospace;
+				font-size: 5rem;
+				background: var(--cyber-gradient);
+				-webkit-background-clip: text;
+				-webkit-text-fill-color: transparent;
+				animation: textGlow 2.5s ease-in-out infinite alternate;
+			}
+
+			@keyframes textGlow {
+				from {
+					text-shadow: 0 0 15px rgba(46, 204, 113, 0.4);
+				}
+				to {
+					text-shadow: 0 0 30px rgba(46, 204, 113, 0.8);
+				}
+			}
+
+			.hero-subtitle {
+				font-size: 1.8rem;
+				margin-bottom: 2.5rem;
+				font-weight: 300;
+			}
+
+			.hero-btn {
+				display: inline-block;
+				padding: 1rem 2.5rem;
+				background: var(--cyber-gradient);
+				color: var(--primary-dark);
+				text-decoration: none;
+				border-radius: 50px;
+				font-family: 'IBM Plex Mono', monospace;
+				transition: var(--transition);
+			}
+
+			.hero-btn:hover {
+				transform: translateY(-5px);
+				box-shadow: 0 10px 40px rgba(46, 204, 113, 0.5);
+			}
+
+			.parallax-bg {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 130%;
+				background: url('https://via.placeholder.com/1920x1080') no-repeat
+					center center;
+				background-size: cover;
+				z-index: -1;
+				opacity: 0.2;
+			}
+
+			/* Секция образования и сертификатов */
+			.education-section {
+				padding: var(--section-spacing) 5%;
+			}
+
+			.education-content {
+				max-width: 900px;
+				margin: 0 auto;
+			}
+
+			.education-content h3 {
+				font-family: 'IBM Plex Mono', monospace;
+				font-size: 1.8rem;
+				margin-bottom: 1rem;
+			}
+
+			.education-content p {
+				font-size: 1.2rem;
+				margin-bottom: 2rem;
+			}
+
+			.education-content ul {
+				list-style: none;
+				padding-left: 0;
+			}
+
+			.education-content ul li {
+				font-size: 1.2rem;
+				margin-bottom: 0.5rem;
+			}
+
+			/* Секция навыков */
+			.skills-section {
+				padding: var(--section-spacing) 5%;
+			}
+
+			.skills-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+				gap: 3rem;
+			}
+
+			.skill-item {
+				background: var(--secondary-dark);
+				padding: 2.5rem;
+				border-radius: var(--border-radius);
+				transition: var(--transition);
+				opacity: 0;
+				transform: translateY(30px);
+				box-shadow: var(--shadow-dark);
+			}
+
+			.skill-item:hover {
+				transform: translateY(-10px);
+				box-shadow: 0 15px 50px rgba(46, 204, 113, 0.2);
+			}
+
+			.skill-item.animate {
+				opacity: 1;
+				transform: translateY(0);
+			}
+
+			.skill-label {
+				display: flex;
+				justify-content: space-between;
+				font-family: 'IBM Plex Mono', monospace;
+				font-size: 1.2rem;
+				margin-bottom: 1rem;
+			}
+
+			.skill-bar {
+				height: 10px;
+				background: rgba(46, 204, 113, 0.15);
+				border-radius: 5px;
+				overflow: hidden;
+			}
+
+			.skill-progress {
+				height: 100%;
+				background: var(--cyber-gradient);
+				animation: skillProgress 2s ease-out forwards;
+			}
+
+			@keyframes skillProgress {
+				from {
+					width: 0;
+				}
+				to {
+					width: var(--target-width);
+				}
+			}
+
+			/* Временная шкала опыта */
+			.experience-section {
+				padding: var(--section-spacing) 5%;
+			}
+
+			.timeline {
+				max-width: 900px;
+				margin: 0 auto;
+				position: relative;
+			}
+
+			.timeline::before {
+				content: '';
+				position: absolute;
+				width: 2px;
+				height: 100%;
+				background: var(--accent);
+				left: 50%;
+				transform: translateX(-50%);
+			}
+
+			.timeline-item {
+				background: var(--secondary-dark);
+				padding: 2.5rem;
+				margin: 3rem 0;
+				border-radius: var(--border-radius);
+				position: relative;
+				width: 45%;
+				opacity: 0;
+				transition: var(--transition);
+				box-shadow: var(--shadow-dark);
+			}
+
+			.timeline-item:nth-child(odd) {
+				transform: translateX(-50px);
+				margin-right: 55%;
+			}
+
+			.timeline-item:nth-child(even) {
+				transform: translateX(50px);
+				margin-left: 55%;
+			}
+
+			.timeline-item.animate {
+				opacity: 1;
+				transform: translateX(0);
+			}
+
+			.timeline-item::before {
+				content: '';
+				position: absolute;
+				width: 20px;
+				height: 20px;
+				background: var(--accent);
+				border-radius: 50%;
+				top: 50%;
+				transform: translateY(-50%);
+			}
+
+			.timeline-item:nth-child(odd)::before {
+				right: -41px;
+			}
+
+			.timeline-item:nth-child(even)::before {
+				left: -41px;
+			}
+
+			.timeline-date {
+				font-family: 'IBM Plex Mono', monospace;
+				color: var(--accent);
+				font-size: 1.2rem;
+				margin-bottom: 1rem;
+			}
+
+			/* Секция проектов */
+			.projects-section {
+				padding: var(--section-spacing) 5%;
+			}
+
+			.projects-filters {
+				text-align: center;
+				margin-bottom: 3rem;
+			}
+
+			.filter-btn {
+				background: var(--secondary-dark);
+				border: 2px solid var(--accent);
+				padding: 0.8rem 2rem;
+				margin: 0.5rem;
+				cursor: pointer;
+				color: var(--text);
+				font-family: 'IBM Plex Mono', monospace;
+				border-radius: 50px;
+				transition: var(--transition);
+			}
+
+			.filter-btn.active,
+			.filter-btn:hover {
+				background: var(--accent);
+				color: var(--primary-dark);
+			}
+
+			.projects-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+				gap: 3rem;
+			}
+
+			.project-card {
+				background: var(--secondary-dark);
+				border-radius: var(--border-radius);
+				overflow: hidden;
+				transition: var(--transition);
+				opacity: 0;
+				transform: translateY(30px);
+				box-shadow: var(--shadow-dark);
+			}
+
+			.project-card:hover {
+				transform: translateY(-15px);
+				box-shadow: 0 20px 60px rgba(46, 204, 113, 0.3);
+			}
+
+			.project-card.animate {
+				opacity: 1;
+				transform: translateY(0);
+			}
+
+			.project-image {
+				width: 100%;
+				height: 300px;
+				object-fit: cover;
+			}
+
+			.project-info {
+				padding: 2rem;
+			}
+
+			.project-title {
+				font-family: 'IBM Plex Mono', monospace;
+				font-size: 1.5rem;
+				margin-bottom: 1rem;
+			}
+
+			/* Секция внеклассной деятельности */
+			.activities-section {
+				padding: var(--section-spacing) 5%;
+			}
+
+			.activities-section ul {
+				max-width: 900px;
+				margin: 0 auto;
+				list-style: none;
+				padding-left: 0;
+			}
+
+			.activities-section ul li {
+				font-size: 1.2rem;
+				margin-bottom: 1.5rem;
+			}
+
+			/* Форма обратной связи */
+			.contact-section {
+				padding: var(--section-spacing) 5%;
+				text-align: center;
+			}
+
+			.contact-form {
+				max-width: 600px;
+				margin: 0 auto 4rem;
+			}
+
+			.form-group {
+				margin-bottom: 2rem;
+				text-align: left;
+			}
+
+			.form-group label {
+				display: block;
+				font-family: 'IBM Plex Mono', monospace;
+				margin-bottom: 0.5rem;
+			}
+
+			.form-group input,
+			.form-group textarea {
+				width: 100%;
+				padding: 1rem;
+				background: var(--secondary-dark);
+				border: 2px solid var(--accent);
+				border-radius: var(--border-radius);
+				color: var(--text);
+				font-family: 'Inter', sans-serif;
+				transition: var(--transition);
+			}
+
+			.form-group input:focus,
+			.form-group textarea:focus {
+				outline: none;
+				box-shadow: 0 0 20px rgba(46, 204, 113, 0.5);
+				border-color: var(--accent);
+				transform: scale(1.02);
+			}
+
+			.form-group input::placeholder,
+			.form-group textarea::placeholder {
+				color: var(--text);
+				opacity: 0.7;
+			}
+
+			.form-btn {
+				background: var(--cyber-gradient);
+				border: none;
+				padding: 1rem 3rem;
+				color: var(--primary-dark);
+				font-family: 'IBM Plex Mono', monospace;
+				border-radius: 50px;
+				cursor: pointer;
+				transition: var(--transition);
+			}
+
+			.form-btn:hover {
+				transform: translateY(-5px);
+				box-shadow: 0 10px 40px rgba(46, 204, 113, 0.5);
+			}
+
+			.social-links {
+				display: flex;
+				justify-content: center;
+				gap: 3rem;
+				margin-top: 4rem;
+			}
+
+			.social-card {
+				background: var(--secondary-dark);
+				padding: 2rem;
+				border-radius: var(--border-radius);
+				border: 3px solid var(--accent);
+				transition: var(--transition);
+				opacity: 0;
+				transform: translateY(30px);
+				text-decoration: none;
+				color: var(--text);
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+			}
+
+			.social-card.animate {
+				opacity: 1;
+				transform: translateY(0);
+			}
+
+			.social-card:hover {
+				transform: translateY(-10px);
+				box-shadow: 0 15px 50px rgba(46, 204, 113, 0.3);
+			}
+
+			.social-icon {
+				font-size: 2.5rem;
+				color: var(--accent);
+				margin-bottom: 1rem;
+			}
+
+			.github-repos {
+				margin-top: 4rem;
+			}
+
+			.repo-card {
+				background: var(--secondary-dark);
+				padding: 1.5rem;
+				border-radius: var(--border-radius);
+				margin-bottom: 1.5rem;
+				transition: var(--transition);
+			}
+
+			.repo-card:hover {
+				transform: translateY(-5px);
+				box-shadow: 0 10px 30px rgba(46, 204, 113, 0.2);
+			}
+
+			/* Управление темой и языком */
+			.cyber-controls {
+				position: fixed;
+				bottom: 2.5rem;
+				-right: 2.5rem;
+				display: flex;
+				gap: 1.5rem;
+			}
+
+			.control-btn {
+				width: 60px;
+				height: 60px;
+				border-radius: 50%;
+				background: var(--secondary-dark);
+				border: 3px solid var(--accent);
+				color: var(--text);
+				cursor: pointer;
+				transition: var(--transition);
+				display: grid;
+				place-items: center;
+				font-size: 1.5rem;
+			}
+
+			.control-btn:hover {
+				transform: scale(1.15);
+				background: var(--accent);
+				color: var(--primary-dark);
+			}
+
+			/* Футер */
+			.cyber-footer {
+				background: #0a0f1f;
+				padding: 1.5rem 0;
+				text-align: center;
+			}
+
+			.footer-container {
+				display: flex;
+				justify-content: center;
+				gap: 2rem;
+			}
+
+			.footer-container a {
+				color: var(--text);
+				font-size: 1.8rem;
+				transition: var(--transition);
+			}
+
+			.footer-container a:hover {
+				color: var(--accent);
+				transform: translateY(-5px);
+			}
+
+			.cyber-footer p {
+				margin-top: 1rem;
+				font-size: 0.9rem;
+				color: var(--text);
+				opacity: 0.7;
+			}
+
+			/* Адаптивность */
+			@media (max-width: 1200px) {
+				.hero-content {
+					grid-template-columns: 1fr;
+					text-align: center;
+				}
+
+				.nav-links {
+					display: none;
+				}
+
+				.burger-menu {
+					display: block;
+				}
+
+				.nav-active {
+					display: flex;
+					flex-direction: column;
+					position: absolute;
+					top: 100%;
+					left: 0;
+					width: 100%;
+					background: var(--primary-dark);
+					padding: 2.5rem;
+					box-shadow: var(--shadow-dark);
+				}
+
+				.timeline::before {
+					left: 20px;
+				}
+
+				.timeline-item {
+					width: 100%;
+					margin-left: 0;
+					margin-right: 0;
+				}
+
+				.timeline-item:nth-child(odd),
+				.timeline-item:nth-child(even) {
+					transform: translateX(-20px);
+					margin-left: 40px;
+				}
+
+				.timeline-item::before {
+					left: -40px;
+				}
+			}
+
+			@media (max-width: 768px) {
+				.hero-title {
+					font-size: 3rem;
+				}
+				.hero-subtitle {
+					font-size: 1.3rem;
+				}
+				.profile-container {
+					width: 350px;
+					height: 350px;
+				}
+				.project-image {
+					height: 200px;
+				}
+				.footer-container {
+					flex-wrap: wrap;
+					gap: 1.5rem;
+				}
+			}
+
+			@media (max-width: 480px) {
+				.hero-title {
+					font-size: 2rem;
+				}
+				.profile-container {
+					width: 250px;
+					height: 250px;
+				}
+				.control-btn {
+					width: 50px;
+					height: 50px;
+				}
+				.footer-container a {
+					font-size: 1.5rem;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<!-- Частицы -->
+		<div class="cyber-particles" id="particles"></div>
+
+		<!-- Навигация -->
+		<nav class="cyber-nav">
+			<div class="nav-container">
+				<h1 class="logo">AK</h1>
+				<button class="burger-menu"><i class="fas fa-bars"></i></button>
+				<div class="nav-links">
+					<a href="#about" class="nav-link" data-i18n="nav.about">Обо мне</a>
+					<a href="#education" class="nav-link" data-i18n="nav.education"
+						>Образование</a
+					>
+					<a href="#experience" class="nav-link" data-i18n="nav.experience"
+						>Опыт</a
+					>
+					<a href="#skills" class="nav-link" data-i18n="nav.skills">Навыки</a>
+					<a href="#activities" class="nav-link" data-i18n="nav.activities"
+						>Активности</a
+					>
+					<a href="#projects" class="nav-link" data-i18n="nav.projects"
+						>Проекты</a
+					>
+					<a href="#contact" class="nav-link" data-i18n="nav.contact"
+						>Контакты</a
+					>
+				</div>
+			</div>
+		</nav>
+
+		<!-- Герой -->
+		<section class="cyber-hero" id="about">
+			<div class="parallax-bg"></div>
+			<div class="hero-content container">
+				<div class="profile-container">
+					<img
+						<img src="IFKJ6893.JPG" alt="Alikhan Kostubayev" class="profile-image" loading="lazy" />
+					/>
+				</div>
+				<div class="hero-info">
+					<h1 class="hero-title" data-i18n="hero.title">Alikhan Kostubayev</h1>
+					<p class="hero-subtitle" data-i18n="hero.subtitle">
+						Стремящийся стать аналитиком SOC с прочными основами в
+						кибербезопасности
+					</p>
+					<a href="#contact" class="hero-btn" data-i18n="hero.btn"
+						>Связаться со мной</a
+					>
+				</div>
+			</div>
+		</section>
+
+		<!-- Образование и сертификаты -->
+		<section class="education-section" id="education">
+			<div class="container">
+				<h2 data-i18n="education.title">Образование и Сертификаты</h2>
+				<div class="education-content">
+					<h3 data-i18n="education.degree">Бакалавр компьютерных наук</h3>
+					<p data-i18n="education.university">
+						Университет СДУ, Ожидается в 2027
+					</p>
+					<p data-i18n="education.coursework">
+						Релевантные курсы: Сетевая безопасность, Криптография, Безопасное
+						программирование, Кибербезопасность.
+					</p>
+					<h3 data-i18n="education.certifications">Сертификаты</h3>
+					<ul>
+						<li>CompTIA Security+ (Ожидается в 2025)</li>
+						<li>AWS Academy Cloud Foundations (завершение курса, 2025)</li>
+						<li>Red Hat System Administration II (завершение курса, 2025)</li>
+					</ul>
+				</div>
+			</div>
+		</section>
+
+		<!-- Опыт -->
+		<section class="experience-section" id="experience">
+			<div class="container">
+				<h2 data-i18n="experience.title">Профессиональный опыт</h2>
+				<div class="timeline">
+					<div class="timeline-item">
+						<p class="timeline-date" data-i18n="experience.1.date">
+							Янв 2025 - Настоящее время
+						</p>
+						<h3 data-i18n="experience.1.title">
+							Ассистент по кибербезопасности
+						</h3>
+						<ul>
+							<li data-i18n="experience.1.1">
+								Участвовал в соревновании MITRE Embedded Capture the Flag
+								(eCTF), применяя продвинутые навыки в проектировании
+								безопасности и анализе уязвимостей для решения сложных задач в
+								области кибербезопасности.
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Навыки -->
+		<section class="skills-section" id="skills">
+			<div class="container">
+				<h2 data-i18n="skills.title">Навыки</h2>
+				<div class="skills-grid">
+					<div class="skill-item">
+						<div class="skill-label">
+							<span data-i18n="skills.python">Python</span><span>85%</span>
+						</div>
+						<div class="skill-bar">
+							<div class="skill-progress" style="--target-width: 85%"></div>
+						</div>
+					</div>
+					<div class="skill-item">
+						<div class="skill-label">
+							<span data-i18n="skills.linux">Linux</span><span>80%</span>
+						</div>
+						<div class="skill-bar">
+							<div class="skill-progress" style="--target-width: 80%"></div>
+						</div>
+					</div>
+					<div class="skill-item">
+						<div class="skill-label">
+							<span data-i18n="skills.splunk">Splunk</span><span>75%</span>
+						</div>
+						<div class="skill-bar">
+							<div class="skill-progress" style="--target-width: 75%"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Внеклассная деятельность -->
+		<section class="activities-section" id="activities">
+			<div class="container">
+				<h2 data-i18n="activities.title">Внеклассная деятельность</h2>
+				<ul>
+					<li data-i18n="activities.1">
+						Активно участвую в хакатонах и соревнованиях по кибербезопасности,
+						постоянно работая над практическими задачами в TryHackMe и улучшая
+						навыки в реальных сценариях безопасности.
+					</li>
+					<li data-i18n="activities.2">
+						Вношу вклад в open-source проекты по кибербезопасности на GitHub,
+						фокусируясь на разработке и улучшении инструментов сетевой
+						безопасности.
+					</li>
+					<li data-i18n="activities.3">
+						Посещаю конференции и вебинары по кибербезопасности, чтобы быть в
+						курсе последних трендов и лучших практик в индустрии.
+					</li>
+				</ul>
+			</div>
+		</section>
+
+		<!-- Проекты -->
+		<section class="projects-section" id="projects">
+			<div class="container">
+				<h2 data-i18n="projects.title">Ключевые проекты</h2>
+				<div class="projects-filters">
+					<button class="filter-btn active" data-filter="all">Все</button>
+					<button class="filter-btn" data-filter="cybersecurity">
+						Кибербезопасность
+					</button>
+					<button class="filter-btn" data-filter="development">
+						Разработка
+					</button>
+				</div>
+				<div class="projects-grid">
+					<div class="project-card" data-category="cybersecurity">
+						<img
+							src="project1.jpg"
+							alt="Project 1"
+							class="project-image"
+							loading="lazy"
+						/>
+						<div class="project-info">
+							<h4 class="project-title" data-i18n="projects.1.title">
+								Threat Intelligence Platform
+							</h4>
+							<p data-i18n="projects.1.desc">
+								Система обнаружения угроз на базе ИИ
+							</p>
+						</div>
+					</div>
+					<div class="project-card" data-category="development">
+						<img
+							src="project2.jpg"
+							alt="Project 2"
+							class="project-image"
+							loading="lazy"
+						/>
+						<div class="project-info">
+							<h4 class="project-title" data-i18n="projects.2.title">
+								Cyber Dashboard
+							</h4>
+							<p data-i18n="projects.2.desc">
+								Интерактивная панель для мониторинга угроз
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Контакты -->
+		<section class="contact-section" id="contact">
+			<div class="container">
+				<h2 data-i18n="contact.title">Свяжитесь со мной</h2>
+				<p>
+					Email:
+					<a href="mailto:alikhankostubaev@gmail.com"
+						>alikhankostubaev@gmail.com</a
+					>
+				</p>
+				<p>Phone: +7(706) 410-1608</p>
+				<p>
+					Website:
+					<a href="http://www.faangpath.com" target="_blank"
+						>www.faangpath.com</a
+					>
+				</p>
+				<div class="social-links">
+					<a
+						href="https://www.linkedin.com/in/alikhan-kostubaev-856044305/"
+						class="social-card animate-on-scroll"
+						target="_blank"
+					>
+						<i class="fab fa-linkedin social-icon"></i><span>LinkedIn</span>
+					</a>
+					<a
+						href="https://github.com/Howhacked"
+						class="social-card animate-on-scroll"
+						target="_blank"
+					>
+						<i class="fab fa-github social-icon"></i><span>GitHub</span>
+					</a>
+					<a
+						href="https://twitter.com/yourusername"
+						class="social-card animate-on-scroll"
+						target="_blank"
+					>
+						<i class="fab fa-twitter social-icon"></i><span>Twitter</span>
+					</a>
+					<a
+						href="https://youtube.com/yourchannel"
+						class="social-card animate-on-scroll"
+						target="_blank"
+					>
+						<i class="fab fa-youtube social-icon"></i><span>YouTube</span>
+					</a>
+				</div>
+				<div class="github-repos">
+					<h3 data-i18n="contact.repos">Последние репозитории GitHub</h3>
+					<div id="repos"></div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Футер -->
+		<footer class="cyber-footer">
+			<div class="footer-container">
+				<a
+					href="https://www.linkedin.com/in/alikhan-kostubaev-856044305/"
+					target="_blank"
+					aria-label="LinkedIn"
+				>
+					<i class="fab fa-linkedin"></i>
+				</a>
+				<a
+					href="https://github.com/Howhacked"
+					target="_blank"
+					aria-label="GitHub"
+				>
+					<i class="fab fa-github"></i>
+				</a>
+				<a
+					href="https://twitter.com/yourusername"
+					target="_blank"
+					aria-label="Twitter"
+				>
+					<i class="fab fa-twitter"></i>
+				</a>
+				<a
+					href="https://youtube.com/yourchannel"
+					target="_blank"
+					aria-label="YouTube"
+				>
+					<i class="fab fa-youtube"></i>
+				</a>
+			</div>
+			<p>© 2023 Alikhan Kostubayev. All rights reserved.</p>
+		</footer>
+
+		<!-- Управление темой и языком -->
+		<div class="cyber-controls">
+			<button class="control-btn" id="themeBtn" aria-label="Переключить тему">
+				<i class="fas fa-moon"></i>
+			</button>
+			<button class="control-btn" id="langBtn" aria-label="Сменить язык">
+				<i class="fas fa-globe"></i>
+			</button>
+		</div>
+
+		<script>
+			// Локализация
+			const translations = {
+				ru: {
+					'nav.about': 'Обо мне',
+					'nav.education': 'Образование',
+					'nav.experience': 'Опыт',
+					'nav.skills': 'Навыки',
+					'nav.activities': 'Активности',
+					'nav.projects': 'Проекты',
+					'nav.contact': 'Контакты',
+					'hero.title': 'Алихан Костубаев',
+					'hero.subtitle':
+						'Стремящийся стать аналитиком SOC с прочными основами в кибербезопасности',
+					'hero.btn': 'Связаться со мной',
+					'education.title': 'Образование и Сертификаты',
+					'education.degree': 'Бакалавр компьютерных наук',
+					'education.university': 'Университет СДУ, Ожидается в 2027',
+					'education.coursework':
+						'Релевантные курсы: Сетевая безопасность, Криптография, Безопасное программирование, Кибербезопасность.',
+					'education.certifications': 'Сертификаты',
+					'experience.title': 'Профессиональный опыт',
+					'experience.1.date': 'Янв 2025 - Настоящее время',
+					'experience.1.title': 'Ассистент по кибербезопасности',
+					'experience.1.1':
+						'Участвовал в соревновании MITRE Embedded Capture the Flag (eCTF), применяя продвинутые навыки в проектировании безопасности и анализе уязвимостей для решения сложных задач в области кибербезопасности.',
+					'skills.title': 'Навыки',
+					'skills.python': 'Python',
+					'skills.linux': 'Linux',
+					'skills.splunk': 'Splunk',
+					'activities.title': 'Внеклассная деятельность',
+					'activities.1':
+						'Активно участвую в хакатонах и соревнованиях по кибербезопасности, постоянно работая над практическими задачами в TryHackMe и улучшая навыки в реальных сценариях безопасности.',
+					'activities.2':
+						'Вношу вклад в open-source проекты по кибербезопасности на GitHub, фокусируясь на разработке и улучшении инструментов сетевой безопасности.',
+					'activities.3':
+						'Посещаю конференции и вебинары по кибербезопасности, чтобы быть в курсе последних трендов и лучших практик в индустрии.',
+					'projects.title': 'Ключевые проекты',
+					'projects.1.title': 'Платформа анализа угроз',
+					'projects.1.desc': 'Система обнаружения угроз на базе ИИ',
+					'projects.2.title': 'Кибер-панель',
+					'projects.2.desc': 'Интерактивная панель для мониторинга угроз',
+					'contact.title': 'Свяжитесь со мной',
+					'contact.repos': 'Последние репозитории GitHub',
+				},
+				en: {
+					'nav.about': 'About',
+					'nav.education': 'Education',
+					'nav.experience': 'Experience',
+					'nav.skills': 'Skills',
+					'nav.activities': 'Activities',
+					'nav.projects': 'Projects',
+					'nav.contact': 'Contact',
+					'hero.title': 'Alikhan Kostubayev',
+					'hero.subtitle':
+						'Aspiring SOC Analyst with a strong foundation in cybersecurity',
+					'hero.btn': 'Get in Touch',
+					'education.title': 'Education & Certifications',
+					'education.degree': 'Bachelor of Computer Science',
+					'education.university': 'SDU University, Expected 2027',
+					'education.coursework':
+						'Relevant Coursework: Network Security, Cryptography, Secure Coding, Cybersecurity.',
+					'education.certifications': 'Certifications',
+					'experience.title': 'Professional Experience',
+					'experience.1.date': 'Jan 2025 - Present',
+					'experience.1.title': 'Cybersecurity Track Assistant',
+					'experience.1.1':
+						'Participated in the MITRE Embedded Capture the Flag (eCTF) competition, applying advanced skills in building security design, and vulnerability analysis to solve complex cybersecurity challenges.',
+					'skills.title': 'Skills',
+					'skills.python': 'Python',
+					'skills.linux': 'Linux',
+					'skills.splunk': 'Splunk',
+					'activities.title': 'Extra-Curricular Activities',
+					'activities.1':
+						'Actively participate in hackathons and cybersecurity competitions, consistently working on practical challenges in TryHackMe and improving skills in real-world security scenarios.',
+					'activities.2':
+						'Contribute to open-source cybersecurity projects on GitHub, focusing on the development and enhancement of network security tools and utilities.',
+					'activities.3':
+						'Attend cybersecurity conferences and webinars to stay updated with the latest industry trends and best practices.',
+					'projects.title': 'Key Projects',
+					'projects.1.title': 'Threat Intelligence Platform',
+					'projects.1.desc': 'AI-powered threat detection system',
+					'projects.2.title': 'Cyber Dashboard',
+					'projects.2.desc': 'Interactive dashboard for threat monitoring',
+					'contact.title': 'Get in Touch',
+					'contact.repos': 'Latest GitHub Repositories',
+				},
+			}
+
+			class LocalizationManager {
+				constructor() {
+					this.lang = localStorage.getItem('lang') || 'ru'
+					this.applyTranslations()
+				}
+
+				applyTranslations() {
+					document.querySelectorAll('[data-i18n]').forEach(el => {
+						const key = el.getAttribute('data-i18n')
+						el.textContent = translations[this.lang][key]
+					})
+					document.documentElement.lang = this.lang
+					localStorage.setItem('lang', this.lang)
+				}
+
+				toggleLanguage() {
+					this.lang = this.lang === 'ru' ? 'en' : 'ru'
+					this.applyTranslations()
+				}
+			}
+
+			// Управление темой
+			class ThemeManager {
+				constructor() {
+					this.theme = localStorage.getItem('theme') || 'dark'
+					this.applyTheme()
+				}
+
+				applyTheme() {
+					document.body.setAttribute('data-theme', this.theme)
+					document.getElementById('themeBtn').innerHTML =
+						this.theme === 'dark'
+							? '<i class="fas fa-moon"></i>'
+							: '<i class="fas fa-sun"></i>'
+					localStorage.setItem('theme', this.theme)
+				}
+
+				toggleTheme() {
+					this.theme = this.theme === 'dark' ? 'light' : 'dark'
+					this.applyTheme()
+				}
+			}
+
+			// Анимации при прокрутке
+			function initObservers() {
+				const observer = new IntersectionObserver(
+					entries => {
+						entries.forEach(entry => {
+							if (entry.isIntersecting) {
+								entry.target.classList.add('animate')
+							}
+						})
+					},
+					{ threshold: 0.2 }
+				)
+
+				document
+					.querySelectorAll(
+						'.skill-item, .project-card, .timeline-item, .social-card, .animate-on-scroll'
+					)
+					.forEach(el => observer.observe(el))
+			}
+
+			// Навигация
+			function initNavigation() {
+				const burger = document.querySelector('.burger-menu')
+				const nav = document.querySelector('.nav-links')
+				burger.addEventListener('click', () => {
+					nav.classList.toggle('nav-active')
+					burger.innerHTML = nav.classList.contains('nav-active')
+						? '<i class="fas fa-times"></i>'
+						: '<i class="fas fa-bars"></i>'
+				})
+			}
+
+			// Параллакс
+			function initParallax() {
+				gsap.registerPlugin(ScrollTrigger)
+				gsap.to('.parallax-bg', {
+					y: '60%',
+					ease: 'none',
+					scrollTrigger: {
+						trigger: '.cyber-hero',
+						start: 'top top',
+						end: 'bottom top',
+						scrub: true,
+					},
+				})
+			}
+
+			// Фильтры проектов
+			function initProjectFilters() {
+				const filterButtons = document.querySelectorAll('.filter-btn')
+				const projectCards = document.querySelectorAll('.project-card')
+
+				filterButtons.forEach(button => {
+					button.addEventListener('click', () => {
+						const filter = button.getAttribute('data-filter')
+						filterButtons.forEach(btn => btn.classList.remove('active'))
+						button.classList.add('active')
+
+						projectCards.forEach(card => {
+							const category = card.getAttribute('data-category')
+							if (filter === 'all' || category === filter) {
+								card.style.display = 'block'
+								gsap.fromTo(
+									card,
+									{ opacity: 0, y: 50 },
+									{ opacity: 1, y: 0, duration: 0.5 }
+								)
+							} else {
+								card.style.display = 'none'
+							}
+						})
+					})
+				})
+			}
+
+			// Интеграция с GitHub
+			async function fetchGitHubRepos() {
+				const username = 'your-github-username' // Замени на свой GitHub username
+				try {
+					const response = await fetch(
+						`https://api.github.com/users/${username}/repos?sort=updated&per_page=3`
+					)
+					const repos = await response.json()
+					const reposContainer = document.getElementById('repos')
+					repos.forEach(repo => {
+						const repoCard = document.createElement('div')
+						repoCard.className = 'repo-card'
+						repoCard.innerHTML = `
+                            <h4>${repo.name}</h4>
+                            <p>${repo.description || 'No description'}</p>
+                            <a href="${
+															repo.html_url
+														}" target="_blank">View on GitHub</a>
+                        `
+						reposContainer.appendChild(repoCard)
+					})
+				} catch (error) {
+					console.error('Error fetching repositories:', error)
+				}
+			}
+
+			// Генерация частиц
+			function initParticles() {
+				if (window.innerWidth > 768) {
+					const container = document.getElementById('particles')
+					for (let i = 0; i < 150; i++) {
+						const particle = document.createElement('div')
+						particle.className = 'cyber-particle'
+						particle.style.cssText = `
+                            left: ${Math.random() * 100}%;
+                            width: ${Math.random() * 4}px;
+                            height: ${Math.random() * 4}px;
+                            animation-duration: ${Math.random() * 10 + 5}s;
+                            opacity: ${Math.random() * 0.5 + 0.2};
+                        `
+						container.appendChild(particle)
+					}
+				}
+			}
+
+			// Инициализация
+			document.addEventListener('DOMContentLoaded', () => {
+				const localization = new LocalizationManager()
+				const themeManager = new ThemeManager()
+				initObservers()
+				initNavigation()
+				initParallax()
+				initProjectFilters()
+				fetchGitHubRepos()
+				initParticles()
+
+				// Переключение темы
+				document.getElementById('themeBtn').addEventListener('click', () => {
+					themeManager.toggleTheme()
+				})
+
+				// Переключение языка
+				document.getElementById('langBtn').addEventListener('click', () => {
+					localization.toggleLanguage()
+				})
+			})
+		</script>
+	</body>
+</html>
